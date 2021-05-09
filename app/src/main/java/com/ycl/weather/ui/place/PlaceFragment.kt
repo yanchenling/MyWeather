@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ycl.weather.MainActivity
 import com.ycl.weather.databinding.FragmentPlaceBinding
 import com.ycl.weather.ui.weather.WeatherActivity
+import com.ycl.weather.util.LogUtil
 import com.ycl.weather.util.showToast
 
 
@@ -42,6 +43,7 @@ class PlaceFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        LogUtil.e("onActivityCreated"+activity.toString())
         if (activity is MainActivity && viewModel.isPlaceSaved()) {
             val place = viewModel.getSavedPlace()
             val intent = Intent(context, WeatherActivity::class.java).apply {
